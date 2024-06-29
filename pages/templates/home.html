@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Inovax{% endblock %}
+
+{% block content %}
+
+<style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+    .whatsapp-button img {
+        width: 35px;
+        height: 35px;
+    }
+    
+</style>
+
+<section class="py-12 mt-20">
+    <div class="container mx-auto text-center">
+        <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+    </div>
+    <br>
+    <div class="container mx-auto text-center">
+        <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+    </div>
+    <br>
+    <div class="container mx-auto text-center">
+        <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+    </div>
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+        <img src="{% static 'wpp.png' %}" alt="WhatsApp">
+    </a>
+</section>
+{% endblock %}
