@@ -29,8 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    'ecd4-2804-5d80-8543-4568-30f4-ba61-5ca7-7e63.ngrok-free.app',
-    '958f-2804-5d80-864c-bd14-d573-33e3-66a2-bab4.ngrok-free.app',  # Adicione este host
+    '9fed-2804-5d80-864c-bd14-e906-8dd1-f15-bc0a.ngrok-free.app',  # Adicione este host
 ]
 
 

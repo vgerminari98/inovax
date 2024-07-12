@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Soluções - Inovax{% endblock %}
+
+{% block content %}
+<style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+    
+    .whatsapp-button img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .container_bt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
+
+    .botao {
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Texto branco */
+        padding: 15px 32px; /* Espaçamento interno */
+        text-align: center; /* Centralizar texto */
+        text-decoration: none; /* Remover sublinhado */
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 25px; /* Bordas arredondadas */
+        border: none; /* Remover bordas padrão */
+        cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    }
+</style>
+<main class="flex-grow flex flex-col justify-center">
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
+    
+    <section class="py-12">
+        <div class="container mx-auto text-center mt-20">
+            <img src="{% static 'solucoes.jpg' %}" alt="Quem Somos">
+        </div>
+    </section>
+
+    <section class="py-12">
+        <div class="container mx-auto text-center">
+            <p class="text-lg mx-auto text-15px px-4 text-left">
+                Oferecemos soluções personalizadas para líderes e equipes que desejam transformar a
+                comunicação dentro de suas empresas. Com técnicas inovadoras e estratégias adaptadas,
+                ajudamos a construir um ambiente onde cada palavra e cada interação impulsionam o
+                futuro da organização. Descubra como podemos guiar sua equipe rumo a uma comunicação
+                que não apenas conecta, mas que transforma
+            </p>
+        </div>
+    </section>
+    
+    <div class="container_bt">
+        <a class="botao" href="{% url 'nossas_solucoes_detalhes' %}">Descubra</a>
+    </div>
+
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+        <img src="{% static 'wpp.png' %}" alt="WhatsApp">
+    </a>
+
+</main>
+{% endblock %}

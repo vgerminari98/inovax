@@ -25,7 +25,81 @@
         width: 35px;
         height: 35px;
     }
-    
+
+    .container_bt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
+
+    .botao {
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Texto branco */
+        padding: 15px 32px; /* Espaçamento interno */
+        text-align: center; /* Centralizar texto */
+        text-decoration: none; /* Remover sublinhado */
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 30px; /* Bordas arredondadas */
+        border: none; /* Remover bordas padrão */
+        cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    }
+
+    .centralizada {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+    .imagem {
+        width: 100%;
+        height: auto;
+    }
+
+    .botao-inferior-direito {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Texto branco */
+        padding: 10px 20px; /* Espaçamento interno */
+        text-align: center; /* Centralizar texto */
+        text-decoration: none; /* Remover sublinhado */
+        font-size: 14px;
+        border-radius: 20px; /* Bordas arredondadas */
+        border: none; /* Remover bordas padrão */
+        cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    }
+
+    .container_icon {
+        display: flex;
+        justify-content: center;
+        height: 35vh;
+        gap: 20vh; /* Diminuir espaçamento entre os itens */
+        margin-top: 10vh;
+        
+    }
+
+    .item {
+        text-align: center;
+        margin: 0 40px; /* Aumentar espaçamento lateral entre imagens */
+    }
+
+    .imagem_icon {
+        display: block;
+        margin: 0 auto; /* Centralizar imagem */
+        width: 100px; /* Largura da imagem */
+        height: auto; /* Manter proporção da imagem */
+    }
 </style>
 
 <section class="py-12 mt-20">
@@ -33,12 +107,42 @@
         <img src="{% static 'transformando.jpg' %}" alt="Transformando">
     </div>
     <br>
-    <div class="container mx-auto text-center">
-        <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+    <div class="container_bt">
+        <a class="botao" href="{% url 'quem_somos' %}">Saiba mais</a>
+    </div>
+    <div class="centralizada">
+        <div class="container mx-auto text-center">
+            <img src="{% static 'transformando.jpg' %}" alt="Transformando" class="imagem">
+            <div class="botao-inferior-direito">
+                <a class="botao" href="{% url 'quem_somos' %}">Descubra como</a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container_icon">
+        <div class="item">
+            <img src="{% static 'open_book_icon.png' %}" alt="E-books" class="imagem_icon">
+            <br>
+            <div class="botao">E-books</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'mic_icon.png' %}" alt="Podcast" class="imagem_icon">
+            <br>
+            <div class="botao">Podcast</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'pc_icon.png' %}" alt="Vídeos" class="imagem_icon">
+            <br>
+            <div class="botao">Vídeos</div>
+        </div>
     </div>
     <br>
     <div class="container mx-auto text-center">
         <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+    </div>
+    <br>
+    <div class="container_bt">
+        <a class="botao" href="{% url 'quem_somos' %}">Cadastrar</a>
     </div>
     <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
         <img src="{% static 'wpp.png' %}" alt="WhatsApp">
