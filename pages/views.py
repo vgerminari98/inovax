@@ -10,6 +10,13 @@ def about(request):
     funcionarios = Funcionario.objects.all()
     return render(request, 'about.html', {'funcionarios': funcionarios})
 
+def soluction(request):
+
+    return render(request, 'soluctions.html')
+
+def soluction_detail(request):
+
+    return render(request, 'soluctions_detail.html')
 
 #def quem_somos(request):
 #    """Render the 'Quem Somos' page."""
