@@ -32,18 +32,21 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '9fed-2804-5d80-864c-bd14-e906-8dd1-f15-bc0a.ngrok-free.app',
     '77cb-177-54-207-129.ngrok-free.app',
-    'd2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app'  # Adicione este host
+    'd2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app',
+    '0af3-2804-5d80-8543-4568-a173-4885-5b75-dac5.ngrok-free.app'  # Adicione este host
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8413-177-54-207-129.ngrok-free.app',  # Adicione seu domínio Ngrok aqui
     'https://77cb-177-54-207-129.ngrok-free.app',
-    'https://d2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app'
+    'https://d2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app',
+    'https://0af3-2804-5d80-8543-4568-a173-4885-5b75-dac5.ngrok-free.app'
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'https://ecd4-2804-5d80-8543-4568-30f4-ba61-5ca7-7e63.ngrok-free.app',
-    'https://d2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app'
+    'https://d2d9-2804-5d80-864c-bd14-3809-aa43-d173-6dd9.ngrok-free.app',
+    'https://0af3-2804-5d80-8543-4568-a173-4885-5b75-dac5.ngrok-free.app '
 ]
 
 # Application definition
@@ -112,8 +115,8 @@ DATABASES = {
         'NAME': 'inovax',
         'USER': 'postgres',
         'PASSWORD': 'secret',
-        #'HOST':'localhost',
-        'HOST': 'inovax-db-1',
+        'HOST':'localhost',
+        #'HOST': 'inovax-db-1',
         'PORT': '5432',
     }
 }

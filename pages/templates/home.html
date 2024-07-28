@@ -51,7 +51,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        
     }
 
     .container {
@@ -86,7 +85,6 @@
         height: 35vh;
         gap: 20vh; /* Diminuir espaçamento entre os itens */
         margin-top: 10vh;
-        
     }
 
     .item {
@@ -99,6 +97,87 @@
         margin: 0 auto; /* Centralizar imagem */
         width: 100px; /* Largura da imagem */
         height: auto; /* Manter proporção da imagem */
+    }
+
+    .solucoes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .linha {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+    }
+
+    .item {
+        text-align: center;
+        margin: 0 70px; /* Espaço entre as imagens */
+    }
+
+    .imagem_solucoes {
+        width: 200px;
+        height: 200px;
+        border-radius: 30%;
+    }
+
+    .botao-esquerda {
+        text-align: center; /* Alinhar o texto à esquerda */
+        display: block;
+        margin: 10px 0 0 0; /* Margem superior para separar a imagem do botão */
+    }
+
+    /* Media Queries para responsividade */
+    @media (max-width: 768px) {
+        .container_icon {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .container_bt, .solucoes, .linha {
+            flex-direction: column;
+        }
+
+        .imagem_solucoes {
+            width: 150px;
+            height: 150px;
+        }
+
+        .item {
+            margin: 20px 0; /* Espaço entre os itens na visualização móvel */
+        }
+
+        .container_bt {
+            margin: 2rem 0;
+        }
+
+        .centralizada {
+            flex-direction: column;
+        }
+
+        .imagem_icon {
+            width: 70px;
+        }
+
+        .whatsapp-button {
+            width: 50px;
+            height: 50px;
+        }
+
+        .whatsapp-button img {
+            width: 25px;
+            height: 25px;
+        }
+
+        .botao {
+            padding: 10px 24px;
+            font-size: 14px;
+        }
+
+
     }
 </style>
 
@@ -116,15 +195,47 @@
         </div>
     </div>
     <br>
-    
-    <div class="centralizada">
-        <div class="container mx-auto text-center">
-            <img src="{% static 'transformando.jpg' %}" alt="Transformando" class="imagem">
-            <div class="botao-inferior-direito">
-                <a class="botao" href="{% url 'quem_somos' %}">Descubra como</a>
+    <div class="solucoes">
+        <div class="linha">
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 1" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Liderar</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 2" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Comunicar</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 3" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Vender</a>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 4" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Negociar</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 5" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Autodesenvolver</a>
+            </div>
+            <div class="item">
+                <img src="{% static 'ratangulo.png' %}" alt="Imagem 6" class="imagem_solucoes">
+                <br>
+                <a class="botao botao-esquerda" href="#">Integrar</a>
             </div>
         </div>
     </div>
+    <br>
+    <div>
+        {% include 'carousel.html' %}
+    </div>
+    
     <br>
     <div class="container_icon">
         <div class="item">

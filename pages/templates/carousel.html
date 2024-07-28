@@ -1,0 +1,338 @@
+{% load static %}
+<!-- carousel.html -->
+<style>
+    .avatar-member {
+        margin: 100px 0;  
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .avatar-container {
+        width: 150px; 
+        height: 150px;
+        overflow: hidden;
+        position: relative;
+        border-radius: 50%;
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        margin-bottom: -75px; 
+    }
+
+    .avatar-container::before {
+        content: "";
+        position: absolute;
+        top: -10px; 
+        left: -10px; 
+        width: 160px; 
+        height: 160px; 
+        background-color: #00b310; 
+        border-radius: 50%;
+        opacity: 0.7; 
+        z-index: 1;
+    }
+
+    .avatar-container img {
+        width: 95%; 
+        height: auto; 
+        object-fit: cover;
+        z-index: 2;
+        position: relative;
+    }
+
+    .team-member {
+        background-color: #fff;
+        padding: 10px; 
+        border-radius: 20px;
+        text-align: center;
+        width: 200px;
+        position: relative;
+    }
+
+    .team-member img.w-10 {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .text-center.mt-3 {
+        margin-top: 70px; 
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .overlay-text {
+        position: absolute;
+        top: 65%;
+        left: 65%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 1em;
+        text-align: center;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.5); 
+        width: 300%;
+        height: 100%; 
+        box-sizing: border-box;
+        border-radius: 10px;
+    }
+
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+    
+    .whatsapp-button img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .text-15px {
+        font-size: 15px;
+    }
+
+    .carousel-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .carousel-item {
+        flex: 0 0 auto;
+        width: 300px;
+        scroll-snap-align: start;
+    }
+
+    .carousel-center {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .carousel-button.left {
+        left: 10px;
+    }
+
+    .carousel-button.right {
+        right: 10px;
+    }
+
+    /* Estilos para o modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+        padding-top: 60px;
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+
+    .team-description {
+        background-color: #1b1b1b; /* Cor de fundo preto */
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin-bottom: 20px;
+        color: white; /* Cor do texto branco */
+    }
+
+    .team-description h3 {
+        font-size: 2.25rem; /* Tamanho maior para o nome do funcionário */
+        font-weight: bold;
+        text-align: left;
+        margin: 0;
+    }
+
+    .team-description p {
+        font-size: 1.125rem; /* Tamanho menor para o cargo */
+        margin-top: 0.25rem; /* Espaçamento entre nome e cargo */
+        margin: 0;
+    }
+
+    .team-description .text-left {
+        text-align: left;
+    }
+
+    .team-description .text-justify {
+        text-align: justify;
+    }
+
+    .hidden {
+        display: none;
+    }
+    
+</style>
+
+<main class="flex-grow flex flex-col justify-center">
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
+
+    <section class="py-12 bg-black flex-grow">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6">Conheça nossa equipe</h2>
+            <div class="carousel-container">
+                <button class="carousel-button left" onclick="scrollCarousel('left')">&lt;</button>
+                <div class="{% if funcionarios|length > 4 %}carousel{% else %}carousel-center{% endif %}">
+                    {% for funcionario in funcionarios %}
+                    <div class="avatar-member relative carousel-item" onclick="event.stopPropagation();">
+                        <div class="avatar-container">
+                            <img src="{{ funcionario.foto.url }}" alt="{{ funcionario.nome }}">
+                        </div>
+                        <div class="team-member">
+                            <div class="text-center mt-3">
+                                <h3 class="text-xl font-bold text-black">{{ funcionario.nome }}</h3>
+                                <p class="text-black">{{ funcionario.cargo }}</p>
+                            </div>
+                            <button onclick="toggleDescription(event, '{{ forloop.counter0 }}')">
+                                <img src="{% static 'component 10.png' %}" alt="Add Button" class="w-8 h-8 mx-auto mt-4">
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-button right" onclick="scrollCarousel('right')">&gt;</button>
+            </div>
+        </div>
+
+        <div class="container mx-auto text-center">
+            {% for funcionario in funcionarios %}
+                <div id="description-{{ forloop.counter0 }}" class="team-description hidden text-white flex justify-between items-center p-4">
+                    <div class="flex flex-col items-start">
+                        <h3 class="text-3xl font-bold">{{ funcionario.nome }}</h3>
+                        <p class="text-lg mt-1 text-red-600">{{ funcionario.cargo }}</p>
+                    </div>
+                    <div class="flex-grow text-justify ml-8">
+                        <p>{{ funcionario.descricao }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <script>
+        function openModal(name, position, description) {
+            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalPosition').textContent = position;
+            document.getElementById('modalDescription').textContent = description;
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel');
+            const scrollAmount = 300; 
+            if (direction === 'left') {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function toggleDescription(event, index) {
+            event.stopPropagation();
+            const descriptionDiv = document.getElementById(`description-${index}`);
+            const isHidden = descriptionDiv.classList.contains('hidden');
+            
+            // Fechar todas as descrições
+            const descriptions = document.querySelectorAll('.team-description');
+            descriptions.forEach(description => {
+                description.classList.add('hidden');
+            });
+
+            // Alternar visibilidade da descrição selecionada
+            if (isHidden) {
+                descriptionDiv.classList.remove('hidden');
+            } else {
+                descriptionDiv.classList.add('hidden');
+            }
+        }
+
+        // Fechar descrições ao clicar fora
+        window.addEventListener('click', function(event) {
+            const descriptions = document.querySelectorAll('.team-description');
+            descriptions.forEach(description => {
+                if (!description.classList.contains('hidden')) {
+                    description.classList.add('hidden');
+                }
+            });
+        });
+        
+    </script>
+
+
+</main>

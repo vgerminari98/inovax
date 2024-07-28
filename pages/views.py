@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .models import Funcionario
 
 def home(request):
-
-    return render(request, 'home.html')
+    funcionarios = Funcionario.objects.all()
+    return render(request, 'home.html', {'funcionarios': funcionarios})
 
 def about(request):
 
@@ -17,6 +17,10 @@ def soluction(request):
 def soluction_detail(request):
 
     return render(request, 'soluctions_detail.html')
+
+def conteudos_para_voce(request):
+    
+    return render(request, 'content_u.html')
 
 #def quem_somos(request):
 #    """Render the 'Quem Somos' page."""
@@ -33,9 +37,6 @@ def soluction_detail(request):
 #    return render(request, 'pages/nosso_time.html')
 #
 #
-#def conteudos_para_voce(request):
-#    """Render the 'Conteúdos para Você' page."""
-#    return render(request, 'pages/conteudos_para_voce.html')
 #
 #
 #def podcast(request):

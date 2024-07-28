@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Soluções - Inovax{% endblock %}
+
+{% block content %}
+<style>
+    .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        z-index: 1000;
+    }
+
+    .whatsapp-button img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-button img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .container_icon {
+        display: flex;
+        justify-content: center;
+        height: 20vh;
+        gap: 10vh; /* Diminuir espaçamento entre os itens */
+        margin-top: 10vh;
+    }
+
+    .item {
+        text-align: center;
+        margin: 0 40px; /* Aumentar espaçamento lateral entre imagens */
+    }
+
+    .imagem_icon {
+        display: block;
+        margin: 0 auto; /* Centralizar imagem */
+        width: 100px; /* Largura da imagem */
+        height: auto; /* Manter proporção da imagem */
+    }
+    
+    .item {
+        text-align: center;
+        margin: 0 70px; /* Espaço entre as imagens */
+    }
+
+    .botao {
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Texto branco */
+        padding: 15px 32px; /* Espaçamento interno */
+        text-align: center; /* Centralizar texto */
+        text-decoration: none; /* Remover sublinhado */
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 30px; /* Bordas arredondadas */
+        border: none; /* Remover bordas padrão */
+        cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    }
+
+    .botao {
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+
+</style>
+<section class="py-12 mt-20">
+    <div class="container mx-auto text-center">
+        <img src="{% static 'conteudo_p_voce/banner_conteudosparavoce.png' %}" alt="Transformando">
+    </div>
+    <br>
+    
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">
+            Explore nossos conteúdos exclusivos e fique atualizado com as melhores práticas em inovação e liderança.
+        </h2>
+    </div>
+    
+    <div class="container_icon">
+        <div class="item">
+            <img src="{% static 'icones/open_book_icon.png' %}" alt="E-books" class="imagem_icon">
+            <br>
+            <div class="botao">E-books</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'icones/mic_icon.png' %}" alt="Podcast" class="imagem_icon">
+            <br>
+            <div class="botao">Podcast</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'icones/pc_icon.png' %}" alt="Vídeos" class="imagem_icon">
+            <br>
+            <div class="botao">Vídeos</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'icones/idea.png' %}" alt="Vídeos" class="imagem_icon">
+            <br>
+            <div class="botao">Publicações</div>
+        </div>
+    </div>
+    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+        <img src="{% static 'wpp.png' %}" alt="WhatsApp">
+    </a>
+</section>
+
+{% endblock %}
