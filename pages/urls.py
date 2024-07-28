@@ -10,6 +10,7 @@ urlpatterns = [
     path('nossas-solucoes-detalhes/', views.soluction_detail, name='nossas_solucoes_detalhes'),
     path('newsletter/', include('newsletter.urls')),
     path('conteudos-para-voce/', views.conteudos_para_voce, name='conteudos_para_voce'),
+    path('ebook/', include('ebooks.urls')),
    # path('nosso-time/', views.nosso_time, name='nosso_time'),
 
    # path('podcast/', views.podcast, name='podcast'),

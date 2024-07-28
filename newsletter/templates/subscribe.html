@@ -61,6 +61,32 @@
         color: #4caf50;
     }
 
+    .alert {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+    }
+
+    .alert-error {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .alert-info {
+        background-color: #cce5ff;
+        color: #004085;
+    }
+
+    .alert-warning {
+        background-color: #fff3cd;
+        color: #856404;
+    }
+
 </style>
 
 <section class="py-12 mt-20">
@@ -123,13 +149,6 @@
             <br>
             <button type="submit" class="btn-submit">Enviar</button>
         </form>
-        {% if messages %}
-            <ul class="mt-3">
-                {% for message in messages %}
-                    <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
     </div>
     <br>
     <div class="container mx-auto text-center">

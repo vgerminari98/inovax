@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'pages',
-    'newsletter'
+    'newsletter',
+    'ebooks'
 ]
 
 RD_STATION_TOKEN = 'zUxTeLeKRyWEFPtEeAaRUqMFKRVhnKtsyCVt'

@@ -239,19 +239,24 @@
     <br>
     <div class="container_icon">
         <div class="item">
-            <img src="{% static 'open_book_icon.png' %}" alt="E-books" class="imagem_icon">
+            <img src="{% static 'icones/open_book_icon.png' %}" alt="E-books" class="imagem_icon">
             <br>
-            <div class="botao">E-books</div>
+            <a class="botao" href="{% url 'ebook_list' %}">E-books</a>
         </div>
         <div class="item">
-            <img src="{% static 'mic_icon.png' %}" alt="Podcast" class="imagem_icon">
+            <img src="{% static 'icones/mic_icon.png' %}" alt="Podcast" class="imagem_icon">
             <br>
             <div class="botao">Podcast</div>
         </div>
         <div class="item">
-            <img src="{% static 'pc_icon.png' %}" alt="Vídeos" class="imagem_icon">
+            <img src="{% static 'icones/pc_icon.png' %}" alt="Vídeos" class="imagem_icon">
             <br>
             <div class="botao">Vídeos</div>
+        </div>
+        <div class="item">
+            <img src="{% static 'icones/idea.png' %}" alt="Vídeos" class="imagem_icon">
+            <br>
+            <div class="botao">Publicações</div>
         </div>
     </div>
     <br>
