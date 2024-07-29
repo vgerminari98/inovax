@@ -4,6 +4,37 @@
 {% block title %}Soluções - Inovax{% endblock %}
 
 {% block content %}
+<style>
+    .botao {
+        background-color: #4CAF50; /* Verde */
+        color: white; /* Texto branco */
+        padding: 15px 32px; /* Espaçamento interno */
+        text-align: center; /* Centralizar texto */
+        text-decoration: none; /* Remover sublinhado */
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 30px; /* Bordas arredondadas */
+        border: none; /* Remover bordas padrão */
+        cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+        
+    }
+
+    .container_bt {
+        margin: 2rem 0;
+    }
+
+    .container_bt, .solucoes, .linha {
+        flex-direction: column;
+    }
+
+    .container_bt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
+</style>
 <main class="flex-grow flex flex-col justify-center">
     <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
     
@@ -12,6 +43,73 @@
             <img src="{% static 'conheca.jpg' %}" alt="Quem Somos">
         </div>
     </section>
+    <div class="container mx-auto py-12">
+        <!-- First Section -->
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4">
+                <img src="https://via.placeholder.com/600x400" alt="Liderar" class="rounded-lg shadow-md">
+            </div>
+            <div class="md:w-1/2 p-4">
+                <h2 class="text-4xl font-bold mb-4">Liderar</h2>
+                <p class="text-lg">Desenvolvemos líderes modernos que inspiram suas equipes e impulsionam a inovação, transformando realidades e construindo um futuro melhor.</p>
+            </div>
+        </div>
+        <!-- Second Section -->
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4 order-2 md:order-1">
+                <h2 class="text-4xl font-bold mb-4">Comunicar</h2>
+                <p class="text-lg">Aprimore suas habilidades de comunicação para se conectar de maneira eficaz, transmitir suas ideias com clareza e engajar seu público.</p>
+            </div>
+            <div class="md:w-1/2 p-4 order-1 md:order-2">
+                <img src="https://via.placeholder.com/600x400" alt="Comunicar" class="rounded-lg shadow-md">
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4">
+                <img src="https://via.placeholder.com/600x400" alt="Liderar" class="rounded-lg shadow-md">
+            </div>
+            <div class="md:w-1/2 p-4">
+                <h2 class="text-4xl font-bold mb-4">Vender</h2>
+                <p class="text-lg">Fortaleça suas técnicas de venda com estratégias inovadoras, aumentando suas oportunidades de negócio e conquistando clientes de forma mais eficiente.</p>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4 order-2 md:order-1">
+                <h2 class="text-4xl font-bold mb-4">Negociar</h2>
+                <p class="text-lg">Aprenda a negociar com confiança e habilidade, alcançando acordos vantajosos e construindo parcerias duradouras.</p>
+            </div>
+            <div class="md:w-1/2 p-4 order-1 md:order-2">
+                <img src="https://via.placeholder.com/600x400" alt="Comunicar" class="rounded-lg shadow-md">
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4">
+                <img src="https://via.placeholder.com/600x400" alt="Liderar" class="rounded-lg shadow-md">
+            </div>
+            <div class="md:w-1/2 p-4">
+                <h2 class="text-4xl font-bold mb-4">Autodesenvolver</h2>
+                <p class="text-lg">Invista no seu crescimento pessoal e profissional com nosso programa de autodesenvolvimento, focado em competências essenciais para o sucesso.</p>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row items-center md:justify-between mb-12">
+            <div class="md:w-1/2 p-4 order-2 md:order-1">
+                <h2 class="text-4xl font-bold mb-4">Integrar</h2>
+                <p class="text-lg">APromova a integração de equipes e processos para criar um ambiente colaborativo, eficiente e alinhado com os objetivos da organização.</p>
+            </div>
+            <div class="md:w-1/2 p-4 order-1 md:order-2">
+                <img src="https://via.placeholder.com/600x400" alt="Comunicar" class="rounded-lg shadow-md">
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">
+            SE INTERESSOU POR NOSSAS SOLUÇÕES?
+        </h2>
+    </div>
+    <div class="container_bt">
+        <a href="https://wa.me/5511999999999" class="botao" target="_blank">Entre em contato pelo WhatsApp</a>
+    </div>
 </main>
 
 {% endblock %}

@@ -130,6 +130,15 @@
         margin: 10px 0 0 0; /* Margem superior para separar a imagem do botão */
     }
 
+    .green-line {
+        width: 15%; /* Defina a largura desejada */
+        height: 4px; /* Defina a altura desejada */
+        background-color: #00FF00; /* Cor verde */
+        margin: 0 auto; /* Centraliza a linha */
+        margin-top: 8px; /* Espaço entre o título e a linha */
+    }
+
+
     /* Media Queries para responsividade */
     @media (max-width: 768px) {
         .container_icon {
@@ -177,7 +186,7 @@
             font-size: 14px;
         }
 
-
+       
     }
 </style>
 
@@ -232,11 +241,25 @@
         </div>
     </div>
     <br>
+
+    <div class="text-center">
+        <h2 class="text-4xl font-bold leading-none">CONHEÇA NOSSA EQUIPE</h2>
+        <br>
+        <div class="green-line"></div>
+    </div>
+
     <div>
         {% include 'carousel.html' %}
     </div>
     
     <br>
+    <div class="container mx-auto flex items-center">
+        <div class="text-left">
+            <h2 class="text-4xl font-bold leading-none">TEMOS CONTEÚDOS</h2>
+            <h2 class="text-4xl font-bold leading-none">EXCLUSIVOS PARA VOCÊ</h2>
+        </div>
+        <div class="flex-grow h-1 bg-white ml-4"></div>
+    </div>
     <div class="container_icon">
         <div class="item">
             <img src="{% static 'icones/open_book_icon.png' %}" alt="E-books" class="imagem_icon">
@@ -260,8 +283,16 @@
         </div>
     </div>
     <br>
+    <div class="container mx-auto flex items-center">
+        <div class="flex-grow h-1 bg-white mr-4"></div>
+        <div class="text-right">
+            <h2 class="text-4xl font-bold leading-none">FIQUE POR DENTRO</h2>
+            <h2 class="text-4xl font-bold leading-none">DE TODAS AS NOVIDADES</h2>
+        </div>
+    </div>
+    <br>
     <div class="container mx-auto text-center">
-        <img src="{% static 'transformando.jpg' %}" alt="Transformando">
+        <img src="{% static 'homepage/banner_newsletter.png' %}" alt="newsletter">
     </div>
     <br>
     <div class="container_bt">
